@@ -46,5 +46,15 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 </pre>
 <p>It will return a bunch of <code>html</code>code. When exporting outputs to file by<code> > temp.html</code>and open it</p>
 <p>Screen shoot is in SQL Injection Folder</p>
-
-
+<h2>Task 2.2</h2>
+<p>We neeed to delete such a statement to append a row to current database:</p>
+<code>DELETE credential where name='ted';
+</code>
+<p>So constructed:</p>
+<ul>
+<li>USERNAME: <code>" '1=1; DELETE credential where name='ted';#"</code></li>
+<li>PASSWORD: <code>" "</code> (Remain Blank)</li> 
+</ul>
+<p>It fails and alerts with a syntax error:</p>
+<p>Screen shoot is in SQL Injection Folder</p>
+<p>Because in PHP's <code>mysqli</code> extension, which invokes <code>mysqli::query</code>  API to handle SQL statements, it doesn't support for multiple queries within the same run. Of course, the design of this API attributes to the concern of SQL injection.</p>
