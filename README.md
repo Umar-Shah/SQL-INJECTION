@@ -75,3 +75,35 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 <p>Assume instead of logging in as Boby using inject method, We keep the login in as Alice, and open Alice's profile edit page.</p>
 <p>We should change the Phone Number as</p> 
 <pre><code>', Salary=1 where name='Boby' #</code></pre>
+<h2>Task 3.3</h2>
+<p>Of course, the simplest approach is to log-in as Boby like <code>Task 3.2</code> and change the password.</p>
+<p>If we must do all things and keep log-in with Alice's own account. We might face such an issue:</p>
+<p>According to code below in <code>unsafe_edit_backend.php</code>, if <strong>Password</strong> is to be updated, the session's <code>pwd</code> will be updated first, which makes our user authentication invalid immediately and the modification dropped. So we cannot modify the password field directly using Alice's authentication.</p>
+<pre><span class="pl-s1"><span class="pl-c1">$</span>conn</span> = <span class="pl-en">getDB</span>();
+<span class="pl-c">// Don't do this, this is not safe against SQL injection attack</span>
+<span class="pl-s1"><span class="pl-c1">$</span>sql</span>=<span class="pl-s">""</span>;
+<span class="pl-k">if</span>(<span class="pl-s1"><span class="pl-c1">$</span>input_pwd</span>!=<span class="pl-s">''</span>){
+<span class="pl-c">// In case password field is not empty.</span>
+<span class="pl-s1"><span class="pl-c1">$</span>hashed_</span> = <span class="pl-en">sha1</span>(<span class="pl-s1"><span class="pl-c1">$</span>input_pwd</span>);
+<span class="pl-c">//Update the password stored in the session.</span>
+<span class="pl-s1"><span class="pl-c1">$</span><span class="pl-c1">_SESSION</span></span>[<span class="pl-s">'pwd'</span>]=<span class="pl-s1"><span class="pl-c1">$</span>hashed_pwd</span>;
+<span class="pl-s1"><span class="pl-c1">$</span>sql</span> = <span class="pl-s">"UPDATE credential SET nickname='$input_nickname',email='$input_email',address='$input_address',Password='$hashed_pwd',PhoneNumber='$input_phonenumber' where ID=$id;"</span>;
+}<span class="pl-k">else</span>{
+<span class="pl-c">// if passowrd field is empty.</span>
+<span class="pl-s1"><span class="pl-c1">$</span>sql</span> = <span class="pl-s">"UPDATE credential SET nickname='$input_nickname',email='$input_email',address='$input_address',PhoneNumber='$input_phonenumber' where ID=$id;"</span>;
+}
+<span class="pl-s1"><span class="pl-c1">$</span>conn</span>-&gt;<span class="pl-en">query</span>(<span class="pl-s1"><span class="pl-c1">$</span>sql</span>);
+<span class="pl-s1"><span class="pl-c1">$</span>conn</span>-&gt;<span class="pl-en">close</span>();
+<span class="pl-en">header</span>(<span class="pl-s">"Location: unsafe_home.php"</span>);
+<span class="pl-en">exit</span>();</pre>
+<p>We should do all things in <strong>Phone Number</strong> field.</p>
+<p>Assume we want to change Boby's password as <code>soudayo</code>. First, we should get SHA1 value of our new password via some <a href="http://www.sha1-online.com/" rel="nofollow">online tool</a> as</p>
+<pre><code>c0b656d5e415ca1a8e098a408f913ec229e120b6
+</code></pre>
+<p>Then construct <strong>Phone Number</strong> as:</p>
+<pre><code>', password='c0b656d5e415ca1a8e098a408f913ec229e120b6' where name='Boby' #
+</code></pre>
+<p>and save. Now, the change works. You can log in with username <code>Boby</code> and password <code>soudayo</code>.</p>
+<p>Verify:</p>
+<p>Screen shoot is in SQL Injection Folder</p>
+
