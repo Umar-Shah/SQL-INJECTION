@@ -16,8 +16,11 @@
   </tbody>
 </table>
 <h1>Task 1</h1>
-<p>Login MYSQL</p>
+<h3>Login MYSQL:</h3>
 <p>mysql -u root -pseedubuntu<br>
    mysql> use Users;<br>
    mysql> show tables;<br>
 </p>
+<h3>Use Such a SQL Query:</h3>
+<p>select * from credential where Name = 'Alice';</p>
+<p>Screen shoot is in SQL Injection Folder</p>
