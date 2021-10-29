@@ -16,3 +16,8 @@
   </tbody>
 </table>
 <h1>Task 1</h1>
+<p>Login MYSQL</p>
+<p>mysql -u root -pseedubuntu<br>
+   mysql> use Users;<br>
+   mysql> show tables;<br>
+</p>
