@@ -59,4 +59,4 @@ curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23
 <p>Screen shoot is in SQL Injection Folder</p>
 <p>Because in PHP's <code>mysqli</code> extension, which invokes <code>mysqli::query</code>  API to handle SQL statements, it doesn't support for multiple queries within the same run. Of course, the design of this API attributes to the concern of SQL injection.</p>
 <h1>Task 3</h1>
-<p>It's hard to find the navigation buttons on this website (<a href="http://www.SeedLabSQLInjection.com" rel="nofollow">www.SeedLabSQLInjection.com</a>).
+<p>It's hard to find the navigation buttons on this website <br>(<a href="http://www.SeedLabSQLInjection.com" rel="nofollow">www.SeedLabSQLInjection.com</a>).
